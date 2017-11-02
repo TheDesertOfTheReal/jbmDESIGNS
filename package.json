@@ -4,8 +4,8 @@
   "description": "bs4 workflow",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp"
+    "test": "gulp",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
