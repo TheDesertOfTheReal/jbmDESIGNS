@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
-var app = express();
-
+const geoip = require('geoip-lite');
+const app = express();
 
 
 
@@ -21,7 +21,9 @@ app.use(express.static(__dirname + '/src'));
 // app.use('/', routes);
 
 app.get('/', (req, res) => {
-  res.render('index')
+  var geo = (geoip.lookup(req.ip));
+  console.log(geo);
+  res.render('index');
 });
 
 

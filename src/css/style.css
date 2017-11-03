@@ -19,10 +19,10 @@
 #home-splash {
   position: relative;
   background: url(../img/home1.jpg);
-  min-height: 750px;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover; }
+  min-height: 700px;
+  background-attachment: scroll;
+  background-size: cover;
+  background-repeat: no-repeat; }
   #home-splash hr {
     border-top: 1px solid #ccc; }
   #home-splash .animated-words span {
@@ -96,7 +96,17 @@
 
 @media (max-width: 576px) {
   .container {
-    width: 100%; } }
+    width: 100%; }
+  #home-splash {
+    height: 830px;
+    background-attachment: scroll;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -240px; }
+  #plans-head {
+    min-height: 250px; }
+    #plans-head .animated-words span {
+      padding-left: 20px; } }
 
 @media (max-width: 768px) {
   #animatedWordsPlansHead {

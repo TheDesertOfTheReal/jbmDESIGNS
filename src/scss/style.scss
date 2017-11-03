@@ -29,10 +29,11 @@
 #home-splash {
   position: relative;
   background: url(../img/home1.jpg);
-  min-height: 750px;
-  background-position: center;
-  background-attachment: fixed;
+  min-height: 700px;
+  // background-position: -220px -100px;
+  background-attachment: scroll;
   background-size: cover;
+  background-repeat: no-repeat;
 
   hr {
     border-top: 1px solid #ccc;
@@ -116,10 +117,30 @@
   .container {
     width: 100%;
   }
+  #home-splash{
+    height: 830px;
+    background-attachment: scroll;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -240px;
+  }
+
+  #plans-head {
+    min-height: 250px;
+
+    .animated-words span {
+      padding-left: 20px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
   #animatedWordsPlansHead {
     display: block;
+  }
+
+  #animatedWordsPlansHead {
+    .animated-words span {
+    }
   }
 }
