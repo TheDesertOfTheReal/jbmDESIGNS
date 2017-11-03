@@ -6,7 +6,8 @@
   }
 
   .active {
-    border-left: #aaa 4px solid
+    border-left: #ddd 3px solid;
+    padding-left: 8px;
   }
 
   .navbar-nav {
@@ -19,7 +20,7 @@
 }
 
 .dark-overlay {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.7);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -29,7 +30,7 @@
 #home-splash {
   position: relative;
   background: url(../img/home1.jpg);
-  min-height: 700px;
+  min-height: 630px;
   // background-position: -220px -100px;
   background-attachment: scroll;
   background-size: cover;
@@ -53,15 +54,56 @@
 }
 
 #plans-section {
-  .fa {
+  .card-title .fa {
+    font-size: 38px;
+  }
+  .card-block .fa {
     font-size: 30px;
   }
 }
 
 
+#hosting-head {
+  position: relative;
+  background: url(../img/home2.jpg);
+  background-position: center;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+
+  #hosting-head-xs {
+    h3 {
+      font-size: 42px;
+    }
+
+    p.lead {
+      font-size: 18;
+    }
+  }
+}
+
+#about {
+  .btn {
+    white-space: normal !important;
+    max-width: 200px;
+  }
+}
+
+#contact-section {
+  position: relative;
+  background: url(../img/bologna.jpg);
+  background-position: center 110px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 500px;
+}
 
 
+////////////////////////////////////////////////////////////////
 // WORDS ANIMATED
+////////////////////////////////////////////////////////////////
 .text-wrapper {
     text-align: center;
 }
@@ -96,7 +138,7 @@
 .animated-words span {
     position: absolute;
     opacity: 0;
-    overflow: hidden;
+    // overflow: hidden;
     -webkit-animation: animateWord 18s linear infinite 0s;
     -ms-animation: animateWord 18s linear infinite 0s;
     animation: animateWord 18s linear infinite 0s;
@@ -113,12 +155,19 @@
 }
 
 
-@media (max-width: 576px) {
+
+////////////////////////////////////////////////////////////////
+// MEDIA QUERIES
+////////////////////////////////////////////////////////////////
+
+
+// smart phones
+@media (max-width: 575px) {
   .container {
     width: 100%;
   }
   #home-splash{
-    height: 830px;
+    height: 900px;
     background-attachment: scroll;
     background-size: cover;
     background-repeat: no-repeat;
@@ -126,21 +175,59 @@
   }
 
   #plans-head {
-    min-height: 250px;
+    height: 250px;
 
     .animated-words span {
       padding-left: 20px;
     }
   }
+
+
+    #hosting-head {
+      height: 300px;
+    }
 }
 
-@media (max-width: 768px) {
-  #animatedWordsPlansHead {
-    display: block;
+//tablets
+@media (min-width:576px) and (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+  #home-splash{
+    height: 620px;
+    background-attachment: scroll;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -240px;
   }
 
-  #animatedWordsPlansHead {
+  #plans-head {
+    height: 250px;
+
     .animated-words span {
+      padding-left: 20px;
     }
+  }
+
+  #hosting-head {
+    height: 350px;
+  }
+}
+
+// small laptops and large tablets
+@media (min-width: 768px) and (max-width: 1199px) {
+  #plans-head {
+    height: 180px;
+  }
+
+  #plans-section {
+    .btn {
+      white-space: normal !important;
+      max-width: 200px;
+    }
+  }
+
+  #hosting-head {
+    height: 250px;
   }
 }

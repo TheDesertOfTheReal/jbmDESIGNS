@@ -4,8 +4,8 @@ const app = express();
 
 
 // IDK HOW TO USE THESE :(
-const geoip = require('geoip-lite');
-const requestIp = require('request-ip');
+// const geoip = require('geoip-lite');
+// const requestIp = require('request-ip');
 
 
 
@@ -24,9 +24,6 @@ app.use(express.static(__dirname + '/src'));
 // app.use('/', routes);
 
 app.get('/', (req, res) => {
-  console.log(ip);
-  var geo = (geoip.lookup(ip));
-  console.log(geo);
   res.render('index');
 });
 
