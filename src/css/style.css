@@ -58,6 +58,10 @@
 #hosting-section #host-col hr, #hosting-section #deploy-col hr {
   border-color: #666; }
 
+#hosting-section .btn {
+  white-space: normal !important;
+  max-width: 200px; }
+
 #about .btn {
   white-space: normal !important;
   max-width: 200px; }

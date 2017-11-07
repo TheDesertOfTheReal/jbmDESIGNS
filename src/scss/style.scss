@@ -92,6 +92,11 @@
   #host-col hr, #deploy-col hr {
     border-color: #666;
   }
+
+  .btn {
+    white-space: normal !important;
+    max-width: 200px;
+  }
 }
 
 #about {
