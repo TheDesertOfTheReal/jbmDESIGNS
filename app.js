@@ -1,21 +1,22 @@
 const express = require('express');
 const path = require('path');
+const hbs = require('hbs');
+const fs = require('fs');
 const app = express();
-
 
 // IDK HOW TO USE THESE :(
 // const geoip = require('geoip-lite');
 // const requestIp = require('request-ip');
 
 
-
-
 //////////////////////////////////////////////
 // CONFIG
 //////////////////////////////////////////////
-app.set('views', path.join(__dirname, '/src/views'));
 app.set("view engine", "hbs");
+app.set('views', path.join(__dirname, '/src/views'));
 app.use(express.static(__dirname + '/src'));
+hbs.registerPartials(__dirname + '/src/views/partials');
+
 
 //////////////////////////////////////////////
 // ROUTE HANDLING
@@ -24,7 +25,19 @@ app.use(express.static(__dirname + '/src'));
 // app.use('/', routes);
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index',  {title: 'JBM Designs'});
+});
+
+app.get('/services', (req, res) => {
+  res.render('services', {title: 'Possibilities | JBM Designs'});
+});
+
+app.get('/about', (req, res) => {
+  res.render('about', {title: 'About Me | JBM Designs'});
+});
+
+app.get('/contact', (req, res) => {
+  res.render('contact', {title: 'Contact | JBM Designs'});
 });
 
 

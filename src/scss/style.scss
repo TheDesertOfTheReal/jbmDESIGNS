@@ -1,5 +1,9 @@
 .navbar {
 
+  a.navbar-brand {
+    color: #111;
+  }
+
   .fa {
     color: #bbb;
     font-size: 24px;
@@ -81,6 +85,13 @@
       font-size: 18;
     }
   }
+
+}
+
+#hosting-section {
+  #host-col hr, #deploy-col hr {
+    border-color: #666;
+  }
 }
 
 #about {
@@ -88,16 +99,38 @@
     white-space: normal !important;
     max-width: 200px;
   }
+
+  .fa {
+    font-size: 30px;
+  }
 }
 
 #contact-section {
   position: relative;
   background: url(../img/bologna.jpg);
-  background-position: center 110px;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  height: 500px;
+  height: 600px;
+
+}
+
+
+
+footer {
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: #bbb;
+    text-decoration: none;
+  }
+
+  .btn {
+    white-space: normal !important;
+    max-width: 280px;
+  }
 }
 
 
@@ -108,6 +141,7 @@
     text-align: center;
 }
 .animated-words {
+    height: 70px;
     display: inline-block;
 }
 .animated-words span:nth-child(2) {
@@ -172,6 +206,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -240px;
+
   }
 
   #plans-head {

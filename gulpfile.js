@@ -48,8 +48,18 @@ gulp.task('browser-sync', ['nodemon'], function () {
   });
 });
 
+////////////////////////////////////////////
+// MOVE APP FILE TO SRC
+////////////////////////////////////////////
+gulp.task('app', () => {
+  return gulp.src('app.js')
+    .pipe(gulp.dest('src'))
+    .pipe(browserSync.stream());
+});
 
+////////////////////////////////////////////
 // Move JS files to source
+////////////////////////////////////////////
 gulp.task('js', () => {
   return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/tether/dist/js/tether.min.js'])
     // .pipe(concat('main.js'))
@@ -58,14 +68,41 @@ gulp.task('js', () => {
     .pipe(browserSync.stream());
 });
 
+////////////////////////////////////////////
+// MOVE PARTIALS FOLDERS TO SRC VIEWS
+////////////////////////////////////////////
+gulp.task('partials', () => {
+  return gulp.src(['src/views/partials/*.hbs', 'src/views/partials/*.html'])
+    .pipe(gulp.dest('src/views/partials'))
+    .pipe(browserSync.stream());
+});
 
+// ////////////////////////////////////////////
+// // MOVE VIEWS FOLDERS TO SRC
+// ////////////////////////////////////////////
+// gulp.task('views', () => {
+//   return gulp.src(['src/views/**/*.hbs', 'src/views/**/*.html'])
+//   .pipe(gulp.dest('src/views'))
+//   .pipe(browserSync.stream());
+// });
+
+////////////////////////////////////////////
+// MOVE IMAGES FOLDERS TO DIST
+////////////////////////////////////////////
+gulp.task('views', () => {
+  return gulp.src(['src/img/*'])
+    .pipe(gulp.dest('src/img'))
+    .pipe(browserSync.stream());
+})
+
+//////////////////////////////////////////////////////
+////// FONT AWESOME FILES
+//////////////////////////////////////////////////////
 // Move Font Awesome Fonts Folder
 gulp.task('fonts', () => {
   return gulp.src('node_modules/font-awesome/fonts/*')
   .pipe(gulp.dest('src/fonts'));
 });
-
-
 // Move Font Awesome CSS files
 gulp.task('fa', () => {
   return gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
@@ -89,25 +126,8 @@ gulp.task('bs-reload', function () {
 
 
 // DEFAULT TASK RUNNER
-gulp.task('default', ['browser-sync', 'fa', 'js', 'sass', 'fonts'], function () {
-  gulp.watch('src/js/*.js',   ['js', browserSync.reload]);
+gulp.task('default', ['browser-sync', 'fa', 'app', 'js', 'sass', 'fonts'], function () {
+  gulp.watch('src/js/*.js',   ['js', 'bs-reload']);
   gulp.watch('src/scss/*.scss',  ['sass']);
   gulp.watch('src/**/*.hbs', ['bs-reload']);
 });
-
-
-
-// // Watches SASS and JS files and serves
-// gulp.task('serve', ['sass'], () => {
-//   browserSync.init({
-//     server: './src'
-//   });
-//   // 1) watches fles 2) gives function to run after done
-//   gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'node_modules/bootstrap/scss/_variables.scss', 'src/scss/*.scss'], ['sass']);
-//   gulp.watch(['src/views/*.hbs']).on('change', browserSync.reload);
-//   gulp.watch(['src/js/*.js'], ['browser-sync']);
-// });
-//
-//
-// // Gulp Default task
-// gulp.task('default', [ 'js', 'serve', 'fonts', 'fa']);
